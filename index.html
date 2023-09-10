@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="background: #fff0db">
+
+  <style>
+    button {
+      margin: 20px;
+    }
+    body {
+      margin: 0;
+    }
+    .board {
+      display: grid;
+      grid-template-columns: repeat(18, 1fr);
+      grid-template-rows: repeat(18, 1fr);
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+      width: 360px;
+      margin-left: 20px;
+      margin-top: 20px;
+    }
+    .board div{
+      width: 20px;
+      height: 20px;
+      border: 1px solid black;
+      background: rgb(255, 180, 76);
+    }
+    .board2 {
+      display: grid;
+      grid-template-columns: repeat(19, 1fr);
+      grid-template-rows: repeat(19, 1fr);
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+      width: 380px;
+      position: absolute;
+      top: 9px; left : 9px;
+    }
+    .board2 div{
+      width: 20px;
+      height: 20px;
+      border: 1px solid transparent;
+      background: rgb(255, 180, 76, 0.2);
+      
+    }
+    .board2 div.b {
+      background: black;
+      border-radius: 50%;
+    }
+    .board2 div.w {
+      background: white;
+      border-radius: 50%;
+    }
+    
+  </style>
+  
+  <div class="board">
+    <div></div> <!--1-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> <!--1-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> <!--1-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> <!--1-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> <!--1-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> <!--1-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> <!--1-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> <!--1-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> <!--1-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> <!--1-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> <!--1-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> <!--1-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> <!--1-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> <!--1-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> <!--1-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> <!--1-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> <!--1-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> <!--1-->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    
+  </div>
+
+
+  <div class="board2">
+   
+    
+  </div>
+
+  <button>리셋</button>
+
+  <script>
+    
+    // var arr = Array(19).fill(0).map(x => Array(19).fill(0))
+    var arr = Array(19 * 19).fill(0)
+
+    //로드시 url 가져오기 
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('a');
+    // url에 뭐가 있으면
+    if (myParam != null) {
+      let 저장된어레이 = JSON.parse(atob(myParam));
+      arr = [...저장된어레이]
+      console.log(저장된어레이);
+
+      for (let i = 0; i < 19 * 19; i++) {
+        document.querySelector('.board2').insertAdjacentHTML('beforeend',`<div data-id="${i}" class="${arr[i]}"></div>`)
+      }
+
+      //url에 뭐가 없으면
+    } else {
+      for (let i = 0; i < 19 * 19; i++) {
+        document.querySelector('.board2').insertAdjacentHTML('beforeend',`<div data-id="${i}"></div>`)
+      }
+    }
+    
+
+    document.querySelector('.board2').addEventListener('click', function(e){
+
+      // 0 -> b -> w -> 0 순서로 바뀜
+      if (e.target != document.querySelector('.board2')){
+        if (e.target.classList.contains('w')){
+          e.target.classList.remove('w')
+          arr[e.target.dataset.id] = 0
+        }
+        else if (e.target.classList.contains('b')){
+          e.target.classList.remove('b')
+          e.target.classList.add('w')
+          arr[e.target.dataset.id] = 'w'
+        } else {
+          e.target.classList.add('b')
+          arr[e.target.dataset.id] = 'b'
+        }
+
+        //save to url
+        let save = btoa(JSON.stringify(arr));
+        window.history.pushState({}, null, '?a=' + save);
+        
+      }
+    })
+
+
+    // reset
+    document.querySelector('button').addEventListener('click', function(e){
+      
+      arr = Array(19 * 19).fill(0);
+      document.querySelector('.board2').innerHTML = '';
+      for (let i = 0; i < 19 * 19; i++) {
+        document.querySelector('.board2').insertAdjacentHTML('beforeend',`<div data-id="${i}"></div>`)
+      }
+      let save = btoa(JSON.stringify(arr));
+        window.history.pushState({}, null, '?a=' + save);
+    })
+    
+
+
+    // 뒤로가기 누를 때 url에 있는거 가져와서 또 그리기 
+    window.addEventListener('popstate', function(event) {
+      const urlParams = new URLSearchParams(window.location.search);
+      const myParam = urlParams.get('a');
+      // url에 뭐가 있으면
+      if (myParam != null) {
+        let 저장된어레이 = JSON.parse(atob(myParam));
+        arr = [...저장된어레이]
+        console.log(저장된어레이);
+        document.querySelector('.board2').innerHTML = '';
+        for (let i = 0; i < 19 * 19; i++) {
+          document.querySelector('.board2').insertAdjacentHTML('beforeend',`<div data-id="${i}" class="${arr[i]}"></div>`)
+        }
+
+        //url에 뭐가 없으면
+      } else {
+        document.querySelector('.board2').innerHTML = '';
+        for (let i = 0; i < 19 * 19; i++) {
+          document.querySelector('.board2').insertAdjacentHTML('beforeend',`<div data-id="${i}"></div>`)
+        }
+      }
+    })
+
+  </script>
+
+</body>
+</html>
