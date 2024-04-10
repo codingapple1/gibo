@@ -1,0 +1,144 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+
+<button>재생</button>
+<div style="
+display : flex;
+justify-content: center;
+align-items: center;
+background: black;
+color: white;
+width: 100px;
+height : 100px;
+border-radius: 50%;
+">엄</div>
+
+<script>
+  document.querySelector('button')
+  .addEventListener('click', async () => {
+    await Tone.Transport.start()
+  })
+
+
+
+
+
+  const drum = new Tone.MembraneSynth().toDestination();
+  const hat = new Tone.MetalSynth({
+    envelope: {
+      attack: 0.01,
+      decay: 0.1,
+      release: 2.3
+    }}).toDestination()
+
+  new Tone.Loop(t => {
+    drum.triggerAttackRelease("C1", "8n", t)
+    drum.triggerAttackRelease("C1", "8n", t+0.5)
+    drum.triggerAttackRelease("C1", "8n", t+1)
+    drum.triggerAttackRelease("C1", "8n", t+1.5)
+    hat.triggerAttackRelease("C1", "8n", t+1.73)
+    hat.triggerAttackRelease("C1", "8n", t+1.86)
+  }, 2).start(0)
+
+
+
+
+
+
+  const bass = new Tone.FMSynth({
+    oscillator : { type : 'amsawtooth'},
+    envelope : {
+      attack : 0.01,
+      decay : 0.1,
+      sustain : 0.8,
+      release : 0.3
+    }}).toDestination()
+
+  new Tone.Loop(t => {
+    bass.triggerAttackRelease("C1", "8n", t)
+    bass.triggerAttackRelease("C2", "8n", t+0.4)
+    bass.triggerAttackRelease("C1", "8n", t+0.8)
+    bass.triggerAttackRelease("C2", "8n", t+1.2)
+    bass.triggerAttackRelease("C1", "8n", t+1.6)
+  }, 2).start(0)
+
+
+
+
+
+
+  const effect = new Tone.Reverb(3).toDestination()
+  const effect2 = new Tone.FrequencyShifter(4)
+
+  var anal = new Tone.Analyser("waveform", 1024)
+
+  const melody = new Tone.Sampler({
+    urls: {
+      B3: "um3.wav"
+    }
+  }).connect(effect2).connect(effect).fan(anal)
+
+  function draw(){
+    
+    document.querySelector('div').style.transform = 'scale(' + anal.getValue()[0] * 3 + ')'
+    requestAnimationFrame(draw)
+  }
+  requestAnimationFrame(draw)
+
+
+
+
+
+
+  // const melody = new Tone.PolySynth().toDestination()
+  // melody.set({
+  //   volume : -5,
+  //   oscillator : { type : 'sawtooth'},
+  //   envelope : {
+  //     attack : 0.01,
+  //     decay : 0.1,
+  //     release : 5
+  //   }
+  // })
+
+
+  new Tone.Loop(t => {
+    melody.triggerAttackRelease(["C2","C4"], "8n", t)
+    melody.triggerAttackRelease("E4", "16n", t+0.4)
+    melody.triggerAttackRelease("F4", "16n", t+0.8)
+    melody.triggerAttackRelease("E4", "16n", t+1.28)
+    melody.triggerAttackRelease(["C2","C4"], "8n", t+2.0)
+    melody.triggerAttackRelease("E4", "16n", t+2.4)
+    melody.triggerAttackRelease("F4", "16n", t+2.8)
+    melody.triggerAttackRelease(["G4","C5"], "16n", t+3.28)
+  }, 4).start(0)
+
+
+
+
+
+
+
+  const high = new Tone.PolySynth().toDestination()
+  high.set({
+    volume : -12,
+    oscillator : { type : 'triangle'},
+    envelope : {
+      attack : 0.01,
+      decay : 0.1,
+      release : 5
+    }})
+  new Tone.Loop(t => {
+    high.triggerAttackRelease("G5", "16n", t)
+    high.triggerAttackRelease("B5", "16n", t+0.1)
+    high.triggerAttackRelease("C6", "16n", t+0.2)
+    high.triggerAttackRelease("G5", "16n", t+0.3)
+    high.triggerAttackRelease("B5", "16n", t+0.4)
+    high.triggerAttackRelease("C6", "16n", t+0.5)
+    high.triggerAttackRelease("G5", "16n", t+0.6)
+    high.triggerAttackRelease("B5", "16n", t+0.7)
+    high.triggerAttackRelease("C6", "16n", t+0.8)
+  }, 2).start(0)
+
+
+
+</script>
