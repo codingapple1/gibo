@@ -4,6 +4,7 @@ const app = express()
 const axios = require('axios')
 const pgvector = require('pgvector/pg')
 
+//임베딩 활용해서 유사단어 검색 + 추천서비스 대충 만들기
 //postgreSQL 데이터베이스, Node.js, OpenAI API키 필요
 
 const client = new pg.Pool({
